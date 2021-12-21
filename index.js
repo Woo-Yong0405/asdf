@@ -787,7 +787,6 @@ You lost all your money
         }
     } else {
         const asdf = message.mentions.users.first().id;
-        if ((dbService.doc("User Data/" + asdf).get()).exists == true) {
             dbService.doc("User Data/" + asdf).get().then((doc) => {
                 if (command == "bal" || command == "balance") {
                     const ddd = new MessageEmbed()
@@ -850,10 +849,6 @@ Bank: ${doc.data().bank}
                         message.reply("Say how much money by a number or all")
                     }
                 }})
-
-        } else {
-            message.reply("Cannot find a user with id: " + message.author.id)
-        }
         }
     }
 	});
