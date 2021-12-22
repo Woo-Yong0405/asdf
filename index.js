@@ -24,12 +24,12 @@ client.on("interactionCreate", async (ia) => {
                     ban.add(ia.user.id);
                     setTimeout(() => {
                         ban.delete(ia.user.id);
-                    }, 864000)
+                    }, 60000)
                     dbService.doc(`User Data/${ia.user.id}`).set({
                         wallet: 0,
                         bank: 0
                     })
-                    ia.update({"content": "Well.... You died, meaning a 24 hour ban AND losing all your money", "components": []});
+                    ia.update({"content": "Well.... You died, meaning a 10 minute ban AND losing all your money", "components": []});
                 } else {
                     dbService.doc(`User Data/${ia.user.id}`).set({
                         wallet: meme.data().wallet + 100,
@@ -66,12 +66,12 @@ client.on("interactionCreate", async (ia) => {
                     ban.add(ia.user.id);
                     setTimeout(() => {
                         ban.delete(ia.user.id);
-                    }, 864000)
+                    }, 60000)
                     dbService.doc(`User Data/${ia.user.id}`).set({
                         wallet: 0,
                         bank: 0
                     })
-                    ia.update({"content": "Well.... You died, meaning a 24 hour ban AND losing all your money", "components": []});
+                    ia.update({"content": "Well.... You died, meaning a 10 minute ban AND losing all your money", "components": []});
                 } else {
                     dbService.doc(`User Data/${ia.user.id}`).set({
                         wallet: meme.data().wallet + 900,
@@ -108,12 +108,12 @@ client.on("interactionCreate", async (ia) => {
                     ban.add(ia.user.id);
                     setTimeout(() => {
                         ban.delete(ia.user.id);
-                    }, 864000)
+                    }, 60000)
                     dbService.doc(`User Data/${ia.user.id}`).set({
                         wallet: 0,
                         bank: 0
                     })
-                    ia.update({"content": "Well.... You died, meaning a 24 hour ban AND losing all your money", "components": []});
+                    ia.update({"content": "Well.... You died, meaning a 10 minute ban AND losing all your money", "components": []});
                 } else {
                     dbService.doc(`User Data/${ia.user.id}`).set({
                         wallet: meme.data().wallet + 9000,
@@ -150,12 +150,12 @@ client.on("interactionCreate", async (ia) => {
                     ban.add(ia.user.id);
                     setTimeout(() => {
                         ban.delete(ia.user.id);
-                    }, 864000)
+                    }, 60000)
                     dbService.doc(`User Data/${ia.user.id}`).set({
                         wallet: 0,
                         bank: 0
                     })
-                    ia.update({"content": "Well.... You died, meaning a 24 hour ban AND losing all your money", "components": []});
+                    ia.update({"content": "Well.... You died, meaning a 10 minute ban AND losing all your money", "components": []});
                 } else {
                     dbService.doc(`User Data/${ia.user.id}`).set({
                         wallet: meme.data().wallet + 90000,
@@ -192,12 +192,12 @@ client.on("interactionCreate", async (ia) => {
                     ban.add(ia.user.id);
                     setTimeout(() => {
                         ban.delete(ia.user.id);
-                    }, 864000)
+                    }, 60000)
                     dbService.doc(`User Data/${ia.user.id}`).set({
                         wallet: 0,
                         bank: 0
                     })
-                    ia.update({"content": "Well.... You died, meaning a 24 hour ban AND losing all your money", "components": []});
+                    ia.update({"content": "Well.... You died, meaning a 10 minute ban AND losing all your money", "components": []});
                 } else {
                     dbService.doc(`User Data/${ia.user.id}`).set({
                         wallet: meme.data().wallet + 900000,
