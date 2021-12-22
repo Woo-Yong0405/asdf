@@ -857,4 +857,4 @@ Bank: ${doc.data().bank}
     }
 	});
 
-client.login("OTA0MTY4MDY0OTM1OTQ4MzI5.YX3mIQ.tUJSO74QadSxCCYrh4Vh8eFU-eY");
+client.login(process.env.TOKEN);
