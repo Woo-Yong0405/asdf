@@ -238,9 +238,14 @@ client.on("messageCreate", async (message) => {
     }
     let meme = await dbService.doc(`User Data/${message.author.id}`).get();
     let asdf = await dbService.doc(`Channel Data/${message.channel.id}`).get();
-    let prefixes = asdf.data().prefix;
-    if (!prefixes) {
-        database1.set(message.channel.id, "-");
+    let prefixes;
+    if (asdf.data().prefix) {
+        prefixes = asdf.data().prefix;
+    } else {
+        dbService.doc(`User Data/${message.channel.id}`).set({
+            prefix: "-"
+        });
+        prefixes = asdf.data().prefix;
     }
     if (message.author.id != client.user.id && message.content.startsWith(prefixes) == true && !ban.has(message.author.id)) {
         const args = message.content.trim().split(/ +/g);
