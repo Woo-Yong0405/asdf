@@ -791,6 +791,7 @@ You lost all your money
         }
     } else {
         const asdf = message.mentions.users.first().id;
+        console.log(asdf)
             dbService.doc("User Data/" + asdf).get().then((doc) => {
                 if (command == "bal" || command == "balance") {
                     const ddd = new MessageEmbed()
