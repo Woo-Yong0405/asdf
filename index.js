@@ -236,18 +236,15 @@ client.on("messageCreate", async (message) => {
             bank: 0
         })
     }
+    if ((dbService.doc(`Channel Data/${message.channel.id}`).get()).exists == false) {
+        dbService.doc(`Channel Data/${message.channel.id}`).set({
+            prefix: "-"
+        })
+    }
     let meme = await dbService.doc(`User Data/${message.author.id}`).get();
     let asdf = await dbService.doc(`Channel Data/${message.channel.id}`).get();
-    let prefixes;
-    if (asdf.data().prefix) {
-        prefixes = asdf.data().prefix;
-    } else {
-        dbService.doc(`User Data/${message.channel.id}`).set({
-            prefix: "-"
-        });
-        prefixes = asdf.data().prefix;
-    }
-    if (message.author.id != client.user.id && message.content.startsWith(prefixes) == true && !ban.has(message.author.id)) {
+    let prefix = asdf.data().prefix;
+    if (message.author.id != client.user.id && message.content.startsWith(prefix) == true && !ban.has(message.author.id)) {
         const args = message.content.trim().split(/ +/g);
         const command = args[0].substring(1).toLowerCase();
         if (message.mentions.users.size == 0) {
@@ -256,7 +253,9 @@ client.on("messageCreate", async (message) => {
         } else if (command == "prefix" || command == "p") {
             if (args[1]) {
                 if (args[1].length == 1) {
-                    database1.set(message.channel.id, `${args[1]}`)
+                    dbService.doc(`Channel Data/${message.channel.id}`).set({
+                        prefix: args[1]
+                    })
                     message.channel.send("@everyone, The prefix has been changed to: " + args[1])
                 } else {
                     message.reply("Your new prefix has to contain only 1 character");
@@ -858,4 +857,4 @@ Bank: ${doc.data().bank}
     }
 	});
 
-client.login(process.env.TOKEN);
+client.login("OTA0MTY4MDY0OTM1OTQ4MzI5.YX3mIQ.tUJSO74QadSxCCYrh4Vh8eFU-eY");
