@@ -16,7 +16,7 @@
     "url": "https://github.com/Woo-Yong0405/kimbap/issues"
   },
   "engines": {
-    "node": "16.13.1"
+    "node": "^16.13.1"
   },
   "homepage": "https://github.com/Woo-Yong0405/kimbap#readme",
   "dependencies": {
