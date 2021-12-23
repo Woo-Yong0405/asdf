@@ -241,6 +241,7 @@ client.on("messageCreate", async (message) => {
             prefix: "-"
         })
     }
+    console.log((dbService.doc(`Channel Data/${message.channel.id}`).get()).exists)
     let meme = await dbService.doc(`User Data/${message.author.id}`).get();
     let asdf = await dbService.doc(`Channel Data/${message.channel.id}`).get();
     let prefix = asdf.data().prefix;
