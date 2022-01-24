@@ -862,4 +862,4 @@ Bank: ${doc.data().bank}
     }
 	});
 
-client.login("OTA0MTY4MDY0OTM1OTQ4MzI5.YX3mIQ.-gFp_XqEcys5JcMxCw5djx_oThE");
+client.login(process.env.TOKEN);
