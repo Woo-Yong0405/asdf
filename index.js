@@ -12,6 +12,7 @@ const dbService = fb;
 
 client.once("ready", () => {
 	console.log(`Logged in as ${client.user.tag}`);
+    
 });
 
 client.on("interactionCreate", async (ia) => {
@@ -230,21 +231,23 @@ client.on("interactionCreate", async (ia) => {
 })
 
 client.on("messageCreate", async (message) => {
-    if ((dbService.doc(`User Data/${message.author.id}`).get()).exists == false) {
-        dbService.doc(`User Data/${message.author.id}`).set({
-            wallet: 100,
-            bank: 0
-        })
-    }
-    if ((dbService.doc(`Channel Data/${message.channel.id}`).get()).exists == false) {
-        dbService.doc(`Channel Data/${message.channel.id}`).set({
-            prefix: "-"
-        })
-    }
-    console.log((dbService.doc(`Channel Data/${message.channel.id}`).get()).exists)
+    dbService.doc(`Channel Data/${message.channel.id}`).set({
+        prefix: "-"
+    })
+    let prefix = "-"
+    dbService.doc(`User Data/${message.author.id}`).get().then((doc) => {
+        if (!doc.exists) {
+            dbService.doc(`User Data/${message.author.id}`).set({
+                wallet: 100,
+                bank: 0
+            })
+        }
+    });
     let meme = await dbService.doc(`User Data/${message.author.id}`).get();
-    let asdf = await dbService.doc(`Channel Data/${message.channel.id}`).get();
-    let prefix = asdf.data().prefix;
+    dbService.doc(`Channel Data/${message.channel.id}`).get().then((docdoc) => {
+        prefix = docdoc.data().prefix
+    });
+    console.log(prefix)
     if (message.author.id != client.user.id && message.content.startsWith(prefix) == true && !ban.has(message.author.id)) {
         const args = message.content.trim().split(/ +/g);
         const command = args[0].substring(1).toLowerCase();
@@ -859,4 +862,4 @@ Bank: ${doc.data().bank}
     }
 	});
 
-client.login(process.env.TOKEN);
+client.login("OTA0MTY4MDY0OTM1OTQ4MzI5.YX3mIQ.-gFp_XqEcys5JcMxCw5djx_oThE");
