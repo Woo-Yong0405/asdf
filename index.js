@@ -28,7 +28,7 @@ client.on("interactionCreate", async (ia) => {
                     }, 60000)
                     dbService.doc(`User Data/${ia.user.id}`).set({
                         wallet: 0,
-                        bank: 0
+                        bank: meme.data().bank
                     })
                     ia.update({"content": "Well.... You died, meaning a 10 minute ban AND losing all your money", "components": []});
                 } else {
@@ -70,7 +70,7 @@ client.on("interactionCreate", async (ia) => {
                     }, 60000)
                     dbService.doc(`User Data/${ia.user.id}`).set({
                         wallet: 0,
-                        bank: 0
+                        bank: meme.data().bank
                     })
                     ia.update({"content": "Well.... You died, meaning a 10 minute ban AND losing all your money", "components": []});
                 } else {
@@ -112,7 +112,7 @@ client.on("interactionCreate", async (ia) => {
                     }, 60000)
                     dbService.doc(`User Data/${ia.user.id}`).set({
                         wallet: 0,
-                        bank: 0
+                        bank: meme.data().bank
                     })
                     ia.update({"content": "Well.... You died, meaning a 10 minute ban AND losing all your money", "components": []});
                 } else {
@@ -154,7 +154,7 @@ client.on("interactionCreate", async (ia) => {
                     }, 60000)
                     dbService.doc(`User Data/${ia.user.id}`).set({
                         wallet: 0,
-                        bank: 0
+                        bank: meme.data().bank
                     })
                     ia.update({"content": "Well.... You died, meaning a 10 minute ban AND losing all your money", "components": []});
                 } else {
@@ -196,7 +196,7 @@ client.on("interactionCreate", async (ia) => {
                     }, 60000)
                     dbService.doc(`User Data/${ia.user.id}`).set({
                         wallet: 0,
-                        bank: 0
+                        bank: meme.data().bank
                     })
                     ia.update({"content": "Well.... You died, meaning a 10 minute ban AND losing all your money", "components": []});
                 } else {
